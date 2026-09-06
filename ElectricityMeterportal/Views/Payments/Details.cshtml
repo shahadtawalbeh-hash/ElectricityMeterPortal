@@ -1,0 +1,57 @@
+﻿@model ElectricityMeterportal.Models.Payment
+@{
+    ViewData["Title"] = "Payment Details";
+}
+<h1>Payment Details</h1>
+<hr />
+<div class="row">
+    <div class="col-md-7">
+        <dl class="row">
+            <dt class="col-sm-5">
+                Bill ID
+            </dt>
+            <dd class="col-sm-7">
+                @Model.BillId
+            </dd>
+            <dt class="col-sm-5">
+                Meter Number
+            </dt>
+            <dd class="col-sm-7">
+                @Model.Bill.Meter.MeterNumber
+            </dd>
+            <dt class="col-sm-5">
+                Customer Name
+            </dt>
+            <dd class="col-sm-7">
+                @Model.Bill.Meter.CustomerName
+            </dd>
+            <dt class="col-sm-5">
+                Bill Amount
+            </dt>
+            <dd class="col-sm-7">
+                @Model.Bill.Amount
+            </dd>
+            <dt class="col-sm-5">
+                Amount Paid
+            </dt>
+            <dd class="col-sm-7">
+                @Model.AmountPaid
+            </dd>
+            <dt class="col-sm-5">
+                Payment Date
+            </dt>
+            <dd class="col-sm-7">
+                @Model.PaymentDate?.ToString("yyyy-MM-dd")
+            </dd>
+        </dl>
+        <a asp-action="Edit"
+           asp-route-id="@Model.PaymentId"
+           class="btn btn-warning">
+            Edit
+        </a>
+        <a asp-action="Index"
+           class="btn btn-secondary">
+            Back to List
+        </a>
+    </div>
+</div>

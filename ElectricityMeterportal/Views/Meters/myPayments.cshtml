@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ElectricityMeterportal.Models.Payment>
+
+@{
+    ViewData["Title"] = "My Payments";
+}
+
+<h1>My Payments</h1>
+
+<hr />
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        No payments are available yet.
+    </div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Meter Number</th>
+                <th>Bill ID</th>
+                <th>Amount Paid</th>
+                <th>Payment Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var payment in Model)
+            {
+                <tr>
+                    <td>@payment.Bill.Meter.MeterNumber</td>
+                    <td>@payment.BillId</td>
+                    <td>@payment.AmountPaid</td>
+                    <td>@payment.PaymentDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

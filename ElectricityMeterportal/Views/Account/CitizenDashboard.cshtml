@@ -1,0 +1,145 @@
+﻿@{
+    ViewData["Title"] = "Citizen Dashboard";
+}
+
+<div class="container mt-5">
+
+    <div class="text-center mb-5">
+        <h1>Citizen Dashboard</h1>
+
+        <p class="text-muted">
+            Welcome to the Electricity Meter Portal
+        </p>
+    </div>
+
+    <div class="row">
+
+        
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+
+                    <h4>New Request</h4>
+
+                    <p>
+                        Submit a new electricity meter request.
+                    </p>
+
+                    <a asp-controller="ElectricityRequest"
+                       asp-action="Create"
+                       class="btn btn-primary">
+                        New Request
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+       
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+
+                    <h4>My Requests</h4>
+
+                    <p>
+                        View and track your electricity requests.
+                    </p>
+
+                    <a asp-controller="ElectricityRequest"
+                       asp-action="MyRequests"
+                       class="btn btn-primary">
+                        My Requests
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+       
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+
+                    <h4>My Meter</h4>
+
+                    <p>
+                        View your electricity meter information.
+                    </p>
+
+                    <a asp-controller="Meters"
+                       asp-action="MyMeter"
+                       class="btn btn-primary">
+                        My Meter
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+       
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+
+                    <h4>My Readings</h4>
+
+                    <p>
+                        View your meter reading history.
+                    </p>
+
+                    <a asp-controller="Meters"
+                       asp-action="MyReadings"
+                       class="btn btn-primary">
+                        My Readings
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+      
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+
+                    <h4>My Bills</h4>
+
+                    <p>
+                        View your electricity bills.
+                    </p>
+
+                    <a asp-controller="Meters"
+                       asp-action="MyBills"
+                       class="btn btn-primary">
+                        My Bills
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+
+                    <h4>My Payments</h4>
+
+                    <p>
+                        View your payment history.
+                    </p>
+
+                    <a asp-controller="Meters"
+                       asp-action="MyPayments"
+                       class="btn btn-primary">
+                        My Payments
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

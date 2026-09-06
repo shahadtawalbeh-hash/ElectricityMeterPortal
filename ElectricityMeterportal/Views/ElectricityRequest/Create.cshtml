@@ -1,0 +1,71 @@
+﻿@model ElectricityMeterportal.Models.ElectricityRequest
+@{
+	ViewData["Title"] = "Electricity Meter Request";
+
+}
+<h1>Electricity Meter Request </h1>
+<hr />
+<div class="row">
+	<div class="col-md-7">
+
+		<form asp-action="Create" method="post" enctype="multipart/form-data">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group mb-3">
+				<label asp-for="NationalID" class="control-label">
+					National ID
+				</label>
+				<input asp-for="NationalID" class="form-control" />
+				<span asp-validation-for="NationalID" class="text-danger"></span>
+			</div>
+			<div class="form-group mb-3">
+				<label asp-for=" FullName" class="control-label">
+					Full Name
+				</label>
+				<input asp-for="FullName" class="form-control" />
+				<span asp-validation-for="FullName" class="text-danger"> </span>
+			</div>
+			<div class="form-group mb-3">
+				<label asp-for=" PhoneNumber" class="control-label">
+					Phone Number
+				</label>
+				<input asp-for="PhoneNumber" class="form-control" />
+				<span asp-validation-for="PhoneNumber" class="text-danger"> </span>
+			</div>
+			<div class="form-group mb-3">
+				<label asp-for=" Address" class="control-label">
+					Address
+				</label>
+				<input asp-for="Address" class="form-control" />
+				<span asp-validation-for="Address" class="text-danger"> </span>
+			</div>
+			<div class="form-group mb-3">
+				<label asp-for=" MeterType" class="control-label">
+					Meter Type
+				</label>
+				<select asp-for="MeterType" class="form-control">
+					<option value="">-- Select Meter Type -- </option>
+					<option value="Residential">Residential</option>
+					<option value="Commercial">Commercial</option>
+					<option value="Industrial">Industrial</option>
+				</select>
+				<span asp-validation-for="MeterType" class="text-danger"> </span>
+			</div>
+			<div class="form-group mb-3">
+				<label class="control-label">National ID Document</label>
+				<input type="file" name="nationalidDocument" class="form-control" accept=".jpg,.jpeg,.png,.pdf" required />
+			</div>
+			<div class="form-group mb-3">
+				<label class="control-label">Proof Of Ownership</label>
+				<input type="file" name="ownershipDocument" class="form-control" accept=".jpg,.jpeg,.png,.pdf" required />
+			</div>
+			<div class="form-group mb-3">
+				<label class="control-label">Clearance Certificate</label>
+				<input type="file" name="clearanceDocument" class="form-control" accept=".jpg,.jpeg,.png,.pdf" required />
+			</div>
+
+
+			<button type="submit" class="btn btn-primary"> Submit</button>
+
+		</form>
+	</div>
+</div>

@@ -1,0 +1,93 @@
+﻿@{
+    ViewData["Title"] = "Employee Dashboard";
+}
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h1>Employee Dashboard</h1>
+        <p class="text-muted">
+            Electricity Meter Portal Management
+        </p>
+    </div>
+    <div class="row">
+       
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h4>Requests</h4>
+                    <p>
+                        Review and manage citizen requests.
+                    </p>
+                    <a asp-controller="ElectricityRequest"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        Manage Requests
+                    </a>
+                </div>
+            </div>
+        </div>
+      
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h4>Meters</h4>
+                    <p>
+                        Manage electricity meters.
+                    </p>
+                    <a asp-controller="Meters"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        Manage Meters
+                    </a>
+                </div>
+            </div>
+        </div>
+       
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h4>Meter Readings</h4>
+                    <p>
+                        Manage meter readings.
+                    </p>
+                    <a asp-controller="MeterReadings"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        Manage Readings
+                    </a>
+                </div>
+            </div>
+        </div>
+       
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h4>Bills</h4>
+                    <p>
+                        Manage electricity bills.
+                    </p>
+                    <a asp-controller="Bills"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        Manage Bills
+                    </a>
+                </div>
+            </div>
+        </div>
+       
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h4>Payments</h4>
+                    <p>
+                        Manage citizen payments.
+                    </p>
+                    <a asp-controller="Payments"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        Manage Payments
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

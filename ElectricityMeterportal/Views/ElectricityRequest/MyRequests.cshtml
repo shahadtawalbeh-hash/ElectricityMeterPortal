@@ -1,0 +1,84 @@
+﻿@model IEnumerable<ElectricityMeterportal.Models.ElectricityRequest>
+
+@{
+    ViewData["Title"] = "My Requests";
+}
+
+<h1>My Requests</h1>
+
+<hr />
+
+@if (!Model.Any())
+{
+    <p class="text-muted">
+        You don't have any requests yet.
+    </p>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+
+        <thead>
+            <tr>
+                <th>National ID</th>
+                <th>Full Name</th>
+                <th>Meter Type</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var request in Model)
+            {
+                <tr>
+
+                    <td>
+                        @request.NationalID
+                    </td>
+
+                    <td>
+                        @request.FullName
+                    </td>
+
+                    <td>
+                        @request.MeterType
+                    </td>
+
+                    <td>
+                        @request.status
+                    </td>
+
+                    <td>
+
+                        <a asp-action="Details"
+                           asp-route-id="@request.ID"
+                           class="btn btn-primary btn-sm">
+                            Details
+                        </a>
+
+                        @if (request.status == "Pending")
+                        {
+                            <a asp-action="Edit"
+                               asp-route-id="@request.ID"
+                               class="btn btn-warning btn-sm">
+                                Edit
+                            </a>
+
+                            <a asp-action="Delete"
+                               asp-route-id="@request.ID"
+                               class="btn btn-danger btn-sm">
+                                Delete
+                            </a>
+                        }
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+}

@@ -1,0 +1,75 @@
+﻿@model ElectricityMeterportal.Models.ElectricityRequest
+@{
+	ViewData["Title"] = "Request Details";
+
+}
+<h1>Request Details </h1>
+<hr />
+<div class="row">
+	<div>
+		<d1 class="row">
+			<dt class="col-sm-3">
+				National Id
+			</dt>
+			<dd class="col-sm-9">
+				@Model.NationalID
+			</dd>
+			<dt class="col-sm-3">
+				Full Name
+			</dt>
+			<dd class="col-sm-9">
+				@Model.FullName
+			</dd>
+			<dt class="col-sm-3">
+				Phone Number
+			</dt>
+			<dd class="col-sm-9">
+				@Model.PhoneNumber
+			</dd>
+			<dt class="col-sm-3">
+				Address
+			</dt>
+			<dd class="col-sm-9">
+				@Model.Address
+			</dd>
+			<dt class="col-sm-3">
+				Meter Type 
+			</dt>
+			<dd class="col-sm-9">
+				@Model.MeterType
+			</dd>
+			<dt class="col-sm-3">
+				Status
+			</dt>
+			<dd class="col-sm-9">
+				@Model.status
+			</dd>
+		</d1>
+		 <hr />
+		 <h3> Documents</h3>
+		@if (Model.Documents != null && Model.Documents.Any())
+		{
+			<div class="list-group">
+				@foreach (var document in Model.Documents)
+				{
+					<div class="list-group-item justify-content-between align-align-items-center">
+						<span> 
+							@document.DocumentType
+						</span>
+						<a href="@document.FilePath"
+						target="_blank"
+						class="btn btn-primary btn-sm"> View Document</a>
+					</div>
+				}
+			</div>
+		}
+		else
+		{
+			<p class="text-muted">No documents uploaded</p>
+			
+		}
+		
+	</div>
+	<div class="mt-4"> <a asp-action="Index" class="btn btn_secondary">Back to list</a></div>
+</div>
+

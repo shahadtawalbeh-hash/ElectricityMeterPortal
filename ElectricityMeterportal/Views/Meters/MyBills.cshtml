@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ElectricityMeterportal.Models.Bill>
+
+@{
+    ViewData["Title"] = "My Bills";
+}
+
+<h1>My Bills</h1>
+
+<hr />
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        No bills are available yet.
+    </div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Meter Number</th>
+                <th>Previous Reading</th>
+                <th>Current Reading</th>
+                <th>Consumption</th>
+                <th>Amount</th>
+                <th>Bill Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var bill in Model)
+            {
+                <tr>
+                    <td>@bill.Meter.MeterNumber</td>
+                    <td>@bill.PreviousReading</td>
+                    <td>@bill.CurrentReading</td>
+                    <td>@bill.Consumption</td>
+                    <td>@bill.Amount</td>
+                    <td>@bill.BillDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

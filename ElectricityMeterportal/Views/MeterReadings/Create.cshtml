@@ -1,0 +1,63 @@
+﻿@model ElectricityMeterportal.Models.MeterReading
+@{
+    ViewData["Title"] = "Add Meter Reading";
+}
+<h1>Add Meter Reading</h1>
+<hr />
+<div class="row">
+    <div class="col-md-7">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly"
+                 class="text-danger">
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="MeterId" class="control-label">
+                    Meter
+                </label>
+                <select asp-for="MeterId"
+                        asp-items="ViewBag.Meters"
+                        class="form-control">
+                    <option value="">
+                        -- Select Meter --
+                    </option>
+                </select>
+                <span asp-validation-for="MeterId"
+                      class="text-danger">
+                </span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="ReadingValue"
+                       class="control-label">
+                    Reading Value
+                </label>
+                <input asp-for="ReadingValue"
+                       class="form-control"
+                       type="number"
+                       step="0.01" />
+                <span asp-validation-for="ReadingValue"
+                      class="text-danger">
+                </span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="ReadingDate"
+                       class="control-label">
+                    Reading Date
+                </label>
+                <input asp-for="ReadingDate"
+                       class="form-control"
+                       type="date" />
+                <span asp-validation-for="ReadingDate"
+                      class="text-danger">
+                </span>
+            </div>
+            <button type="submit"
+                    class="btn btn-primary">
+                Add Reading
+            </button>
+            <a asp-action="Index"
+               class="btn btn-secondary">
+                Back to List
+            </a>
+        </form>
+    </div>
+</div>

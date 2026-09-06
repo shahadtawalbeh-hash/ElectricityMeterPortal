@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Electricity Meter Portal</title>
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+    <link rel="stylesheet"
+          href="~/ElectricityMeterportal.styles.css"
+          asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+            <div class="container">
+                <!-- Website Name -->
+                <a class="navbar-brand fw-bold"
+                   asp-controller="Home"
+                   asp-action="Index">
+                    Electricity Meter Portal
+                </a>
+                <!-- Mobile Button -->
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto">
+                        <!-- ==================== -->
+                        <!-- NOT LOGGED IN -->
+                        <!-- ==================== -->
+                        @if (!User.Identity!.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Home"
+                                   asp-action="Index">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Account"
+                                   asp-action="CitizenLogin">
+                                    Citizen Login
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Account"
+                                   asp-action="EmployeeLogin">
+                                    Employee Login
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Home"
+                                   asp-action="Privacy">
+                                    Privacy
+                                </a>
+                            </li>
+                        }
+                        <!-- ==================== -->
+                        <!-- CITIZEN -->
+                        <!-- ==================== -->
+                        @if (User.Identity!.IsAuthenticated &&
+                             User.IsInRole("Citizen"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Home"
+                                   asp-action="Index">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Account"
+                                   asp-action="CitizenDashboard">
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="ElectricityRequest"
+                                   asp-action="Create">
+                                    New Request
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="ElectricityRequest"
+                                   asp-action="MyRequests">
+                                    My Requests
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Meters"
+                                   asp-action="MyMeter">
+                                    My Meter
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Home"
+                                   asp-action="Privacy">
+                                    Privacy
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <form asp-controller="Account"
+                                      asp-action="Logout"
+                                      method="post"
+                                      class="d-inline">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit"
+                                            class="nav-link btn btn-link">
+                                        Logout
+                                    </button>
+                                </form>
+                            </li>
+                        }
+                        <!-- ==================== -->
+                        <!-- EMPLOYEE -->
+                        <!-- ==================== -->
+                        @if (User.Identity!.IsAuthenticated &&
+                             User.IsInRole("Employee"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Home"
+                                   asp-action="Index">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Account"
+                                   asp-action="EmployeeDashboard">
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="ElectricityRequest"
+                                   asp-action="Index">
+                                    Requests
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Meters"
+                                   asp-action="Index">
+                                    Meters
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Home"
+                                   asp-action="Privacy">
+                                    Privacy
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <form asp-controller="Account"
+                                      asp-action="Logout"
+                                      method="post"
+                                      class="d-inline">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit"
+                                            class="nav-link btn btn-link">
+                                        Logout
+                                    </button>
+                                </form>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="border-top footer text-muted mt-5">
+        <div class="container py-3 text-center">
+            &copy; 2026 - Electricity Meter Portal
+            <span class="mx-2">|</span>
+            <a asp-controller="Home"
+               asp-action="Privacy"
+               class="text-decoration-none">
+                Privacy
+            </a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"
+            asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

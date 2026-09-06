@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model ElectricityMeterportal.Models.MeterReading
+@{
+    ViewData["Title"] = "Reading Details";
+}
+<h1>Reading Details</h1>
+<hr />
+<div class="row">
+    <div class="col-md-7">
+        <dl class="row">
+            <dt class="col-sm-4">
+                Meter Number
+            </dt>
+            <dd class="col-sm-8">
+                @Model.Meter.MeterNumber
+            </dd>
+            <dt class="col-sm-4">
+                Customer Name
+            </dt>
+            <dd class="col-sm-8">
+                @Model.Meter.CustomerName
+            </dd>
+            <dt class="col-sm-4">
+                Reading Value
+            </dt>
+            <dd class="col-sm-8">
+                @Model.ReadingValue
+            </dd>
+            <dt class="col-sm-4">
+                Reading Date
+            </dt>
+            <dd class="col-sm-8">
+                @Model.ReadingDate?.ToString("yyyy-MM-dd")
+            </dd>
+        </dl>
+        <a asp-action="Edit"
+           asp-route-id="@Model.ReadingId"
+           class="btn btn-warning">
+            Edit
+        </a>
+        <a asp-action="Index"
+           class="btn btn-secondary">
+            Back to List
+        </a>
+    </div>
+</div>

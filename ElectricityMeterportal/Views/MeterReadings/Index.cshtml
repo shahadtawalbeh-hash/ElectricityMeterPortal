@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ElectricityMeterportal.Models.MeterReading>
+@{
+    ViewData["Title"] = "Meter Readings";
+}
+<h1>Meter Readings</h1>
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        Add New Reading
+    </a>
+</p>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Meter Number</th>
+            <th>Reading Value</th>
+            <th>Reading Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reading in Model)
+        {
+            <tr>
+                <td>
+                    @reading.Meter.MeterNumber
+                </td>
+                <td>
+                    @reading.ReadingValue
+                </td>
+                <td>
+                    @reading.ReadingDate?.ToString("yyyy-MM-dd")
+                </td>
+                <td>
+                    <a asp-action="Details"
+                       asp-route-id="@reading.ReadingId"
+                       class="btn btn-info btn-sm">
+                        Details
+                    </a>
+                    <a asp-action="Edit"
+                       asp-route-id="@reading.ReadingId"
+                       class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
+                    <a asp-action="Delete"
+                       asp-route-id="@reading.ReadingId"
+                       class="btn btn-danger btn-sm">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

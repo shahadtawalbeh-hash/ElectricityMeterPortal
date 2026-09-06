@@ -1,0 +1,28 @@
+﻿@{
+	ViewData["Title"]="Citizen Login";
+
+}
+<div class="row justify-content-center mt-5">
+	<div class="col-md-6">
+		<div class="card-body p-4">
+			<h1 class="text-center mb-4 ">Citizen Login </h1>
+			<div asp-validation-summary="All" class="text-danger"></div>
+			<form method="post">
+				<div class="mb-3">
+					<label class="form-label">National ID</label>
+					<input type="text" name="nationalid" class="form-control" required />
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Password</label>
+					<input type="password" name="password" class="form-control" required />
+				</div>
+				<button type="submit" class="btn btn-primary w-100" >Login</button>
+
+			</form>
+			<div class="texr-center mt-3">
+				<a asp-controller="Account" asp-action="CitizenRegister">Don't have an acoount? Register now."</a>
+			</div>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,51 @@
+﻿@model ElectricityMeterportal.Models.MeterReading
+@{
+    ViewData["Title"] = "Delete Reading";
+}
+<h1>Delete Meter Reading</h1>
+<hr />
+<div class="row">
+    <div class="col-md-7">
+        <div class="alert alert-danger">
+            Are you sure you want to delete this reading?
+        </div>
+        <dl class="row">
+            <dt class="col-sm-4">
+                Meter Number
+            </dt>
+            <dd class="col-sm-8">
+                @Model.Meter.MeterNumber
+            </dd>
+            <dt class="col-sm-4">
+                Customer Name
+            </dt>
+            <dd class="col-sm-8">
+                @Model.Meter.CustomerName
+            </dd>
+            <dt class="col-sm-4">
+                Reading Value
+            </dt>
+            <dd class="col-sm-8">
+                @Model.ReadingValue
+            </dd>
+            <dt class="col-sm-4">
+                Reading Date
+            </dt>
+            <dd class="col-sm-8">
+                @Model.ReadingDate?.ToString("yyyy-MM-dd")
+            </dd>
+        </dl>
+        <form asp-action="Delete" method="post">
+            <input type="hidden"
+                   asp-for="ReadingId" />
+            <button type="submit"
+                    class="btn btn-danger">
+                Delete
+            </button>
+            <a asp-action="Index"
+               class="btn btn-secondary">
+                Cancel
+            </a>
+        </form>
+    </div>
+</div>
